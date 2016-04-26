@@ -1,0 +1,174 @@
+﻿@model BroadvineOnboard.Models.Property
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Property Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Area.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area.Name)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalRooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalRooms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BrandCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrandCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmithTravelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmithTravelCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodAndBeverage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodAndBeverage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelationshipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelationshipType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaturityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaturityType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CalendarType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalendarType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,41 @@
+﻿@model BroadvineOnboard.Models.DepartmentGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Department Group Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentGroupCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartmentGroupCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DepartmentGroupID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

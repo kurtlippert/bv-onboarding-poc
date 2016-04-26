@@ -1,0 +1,189 @@
+﻿@{
+    ViewBag.Title = "Broadvine";
+}
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    if (this.User.IsInRole("Administrator"))
+    {
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="fa fa-users fa-3x circles"></div>
+                <h2>Clients</h2>
+                <p>
+                    Manage new Clients
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "Clients")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-cogs fa-3x circles"></div>
+                <h2>Account Types</h2>
+                <p>
+                   Manage Account Types
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "AccountType")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-cog fa-3x circles"></div>
+                <h2>Account Subtypes</h2>
+                <p>
+                   Manage Account sub-types
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "AccountSubType")'>Manage &raquo;</a></p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="fa fa-users fa-3x circles"></div>
+                <h2>Drivers</h2>
+                <p>
+                    Manage Driver Types
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "DriverTypes")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-cogs fa-3x circles"></div>
+                <h2>Account Types</h2>
+                <p>
+                    Manage Wage / PTEB
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "WagePTEB")'>Manage &raquo;</a></p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="fa fa-compass fa-3x circles"></div>
+                <h2>Areas</h2>
+                <p>
+                    Setup & configure areas for my properties
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "Areas")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-building fa-3x circles"></div>
+                <h2>Companies</h2>
+                <p>
+                    Setup & configure companies
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "Companies")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-hotel fa-3x circles"></div>
+                <h2>Properties</h2>
+                <p>
+                    Setup & configure properties for my company
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "Property")'>Manage &raquo;</a></p>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="fa fa-object-group fa-3x circles"></div>
+                <h2>Department Groups</h2>
+                <p>
+                    Setup & configure department groups
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "DepartmentGroups")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4 col-center-logo">
+                &nbsp;
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-info-circle fa-3x circles"></div>
+                <h2>Departments</h2>
+                <p>
+                    Setup & configure departments for my company
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "Departments")'>Manage &raquo;</a></p>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="fa fa-object-ungroup fa-3x circles"></div>
+                <h2>Revenue Segment Groups</h2>
+                <p>
+                    Setup & configure revenue segment groups
+                </p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "RevenueSegmentGroups")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-money fa-3x circles"></div>
+                <h2>Revenue Segments</h2>
+                <p>Setup & Configure your revenue segments</p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "RevenueSegments")'>Manage &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <div class="fa fa-credit-card fa-3x circles"></div>
+                <h2>Chart of Accounts</h2>
+                <p>Setup & Configure your Chart of Accounts</p>
+                <p><a class="btn btn-default" href='@Url.Action("Index", "COA")'>Manage &raquo;</a></p>
+            </div>
+        </div>
+    }
+}
+else
+{
+    @*<div class="jumbotron">
+        <h1>Broadvine</h1>
+        <p class="lead">Make data smart</p>
+    </div>*@
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>Welcome to the Broadvine Onboarding Suite - your one stop shop to come on board.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Broadvine</h2>
+            <p>
+                A unique collection of cloud based modules consisting of tools, reports, analytics, & Business Intelligence functions providing users with consolidated, real-time, intuitive information, garnering a truly competitive advantage within the hotel industry.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Solutions</h2>
+            <p>
+                Portfolio One™’s independent but connected modules provide timely, accurate and critical information that allows you to explore intuitive opportunities and make decisions for a more efficient, competitive, and most importantly more profitable business!
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Technology</h2>
+            <p>
+                Model, predict, and normalize structured and un-structured data, so you can clearly see not only what happened, but more importantly, accurately see what will happen. All of this is possible with our SOPHIA™ Business Intelligence Engine Architecture.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="featurette-heading"><span class="text-muted">Business Intelligence Revolution.</span></h2>
+            <p class="lead">
+                The availability of true Business Intelligence Platforms is no longer limited to large enterprise, IT centric organizations. The global shift to cloud computing coupled with a considerable drop in the cost of “Big Data” management platforms is revolutionizing the landscape of the hospitality marketplace. Access to technology service platforms, like Broadvine’s Portfolio One™, have armed hotel operators and owners with innovative, affordable, and intuitive Business Intelligence platforms, for the first time, opening the window for true performance visibility into the past, the present, and most importantly the future.
+            </p>
+        </div>
+        <div class="col-md-5 text-center">
+            <img class="featurette-image img-responsive float-right" alt="placeholder" src="http://placehold.it/350/398439/fff&amp;text=BI+Holder">
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-5 text-center">
+            <img class="featurette-image img-responsive" alt="placeholder" src="http://placehold.it/350/398439/fff&amp;text=BI+Holder">
+        </div>
+        <div class="col-md-7">
+            <h2 class="featurette-heading"><span class="text-muted">Business Intelligence Revolution.</span></h2>
+            <p class="lead">
+                The availability of true Business Intelligence Platforms is no longer limited to large enterprise, IT centric organizations. The global shift to cloud computing coupled with a considerable drop in the cost of “Big Data” management platforms is revolutionizing the landscape of the hospitality marketplace. Access to technology service platforms, like Broadvine’s Portfolio One™, have armed hotel operators and owners with innovative, affordable, and intuitive Business Intelligence platforms, for the first time, opening the window for true performance visibility into the past, the present, and most importantly the future.
+            </p>
+        </div>
+    </div>
+}

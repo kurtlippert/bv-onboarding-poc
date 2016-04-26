@@ -1,0 +1,139 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.logo{
+    background: url(logo-broadvine.gif) no-repeat;
+    width:240px;
+    height:40px;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:#2D2E2D !important;
+}
+.navbar-default.transparent {
+    background-color: transparent;
+}
+.slide1, .slide2, .slide3 {
+    min-height: 560px;
+    background-size: cover;
+    background-position: center center;
+}
+.slide1 {
+    background-image: url(jumbo-01.jpg);
+}
+.slide2 {
+    background-image: url(jumbo-02.jpg);
+}
+.slide3 {
+    background-image: url(jumbo-03.jpg);
+}
+
+#bg-fade-carousel{
+    margin-top:50px;
+    margin-bottom:-50px;
+}
+
+/* Carousel Fade Effect */
+.carousel.carousel-fade .item {
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    -ms-transition: opacity 1s linear;
+    -o-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+    opacity: .5;
+}
+.carousel.carousel-fade .active.item {
+    opacity: 1;
+}
+.carousel.carousel-fade .active.left,
+.carousel.carousel-fade .active.right {
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.carousel-overlay {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+    left: 0;
+}
+
+.nav.navbar-nav{
+    margin-top:10px!important;
+}
+
+.nav.navbar-nav.navbar-right{
+    margin-top:10px!important;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: rgba(0,180,0,.5);
+    border-radius:5px;
+}
+
+.container.carousel-overlay.text-center{
+    padding-top:-150px;
+    width:100%;
+    color:white;
+}
+
+.circles {
+    margin-top: 20px;
+    background-color: #398439;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 3em!important;
+    width: 3em;
+    height: 3em;
+}
+
+.container.body-content{
+    margin-top:75px;
+}
+
+.col-center-logo
+{
+    opacity:.4;
+    margin-top:75px;
+    background: url(logo-broadvine-big.png) no-repeat;
+    background-position: center center;
+    min-width:200px;
+    min-height:83px;
+}
+
+.jumbotron{
+    background-color:limegreen;
+    color:white;
+}
+
+.float-right{
+    float:right;
+}

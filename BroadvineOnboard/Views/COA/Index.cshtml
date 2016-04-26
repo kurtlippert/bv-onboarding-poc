@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BroadvineOnboard.Models.COA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suffix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RevenueSegment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WagePTEBType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suffix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RevenueSegment.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WagePTEBType.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.COAID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.COAID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.COAID })
+        </td>
+    </tr>
+}
+
+</table>

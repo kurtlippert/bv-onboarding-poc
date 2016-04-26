@@ -1,0 +1,106 @@
+﻿@model BroadvineOnboard.Models.COA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>COA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountSubType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountSubType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DepartmentCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DriverType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DriverType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevenueSegment.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevenueSegment.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WagePTEBType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WagePTEBType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suffix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Suffix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatisticalAccountID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatisticalAccountID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COAID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

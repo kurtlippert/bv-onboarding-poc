@@ -1,0 +1,20 @@
+﻿@model BroadvineOnboard.Models.Property
+
+@{
+    ViewBag.Title = "Select Worksheet";
+
+    IEnumerable<SelectListItem> worksheetNames = ViewBag.WorkSheetNames;
+
+}
+
+<h2>Select a Worksheet</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Your spreadsheet contains more than one worksheet. Please select the worksheet to import from.
+    </p>
+
+    @Html.DropDownList("worksheetName", worksheetNames, htmlAttributes: new { @class = "form-control", @style = "display:inline-block;" })
+    <input type="submit" value="Next" class="btn btn-default" style="display:inline-block;"/>
+}
