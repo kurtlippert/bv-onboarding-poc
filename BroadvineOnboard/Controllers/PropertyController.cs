@@ -20,6 +20,7 @@ namespace BroadvineOnboard.Controllers
         // GET: Property
         public ActionResult Index(string msg = "")
         {
+            // TODO: figure out why these 2 lines below here were needed
             //var properties = db.Properties.Include(p => p.Area);
             //properties.All(p => p.ClientID == BroadvineOnboard.Helpers.CurrentClientID);
 

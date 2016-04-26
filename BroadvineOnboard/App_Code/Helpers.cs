@@ -31,6 +31,8 @@ namespace BroadvineOnboard
                     if (client != null) HttpContext.Current.Session[CurrentUserID] = client.UserID.ToString();
                 }
 
+                //TODO: figure out why this was original, 
+                //return Guid.Parse(HttpContext.Current.Session[CurrentUserID].ToString());
                 return Guid.Parse(CurrentUserID.ToString());
             }
         }
