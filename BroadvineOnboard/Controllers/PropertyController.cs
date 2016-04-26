@@ -29,26 +29,6 @@ namespace BroadvineOnboard.Controllers
             return View(db.Properties.ToList());
         }
 
-        [HttpPost]
-        public ActionResult Index(FormCollection formCollection)
-        {
-            if (Request != null)
-            {
-                HttpPostedFileBase file = Request.Files["UploadedFile"];
-
-                if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
-                {
-                    string fileName = file.FileName;
-                    string fileContentType = file.ContentType;
-                    byte[] fileBytes = new byte[file.ContentLength];
-                    var data = file.InputStream.Read(fileBytes, 0, Convert.ToInt32(file.ContentLength));
-                }
-            }
-
-            return null;
-        }
-
-
         // GET: Property/Details/5
         public ActionResult Details(int? id)
         {
