@@ -195,8 +195,8 @@ namespace BroadvineOnboard.Controllers
             ExcelSpreadSheet s = Helpers.CurrentClientUpload;
             s.SelectedWorksheet = worksheetName;
             Helpers.CurrentClientUpload = s;
-            
-            return View();
+
+            return RedirectToAction("Import");
         }
 
         //  Import 
@@ -210,6 +210,8 @@ namespace BroadvineOnboard.Controllers
             Array.IndexOf(columnNames, "");
             List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = columnNames[0].ToString() }).ToList();
             SelectList l = new SelectList(list);
+
+            ViewBag.Columns = Helpers.CurrentClientUpload.Columns;
 
             //Collection
             return View(new Property());
