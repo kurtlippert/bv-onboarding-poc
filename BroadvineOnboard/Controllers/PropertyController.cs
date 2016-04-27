@@ -190,6 +190,12 @@ namespace BroadvineOnboard.Controllers
         }
 
         [HttpPost]
+        public ActionResult Sheet()
+        {
+            return View();
+        } 
+
+        [HttpPost]
         public ActionResult WorkSheet(string worksheetName)
         {
             ExcelSpreadSheet s = Helpers.CurrentClientUpload;
@@ -208,13 +214,20 @@ namespace BroadvineOnboard.Controllers
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "Name");
 
             Array.IndexOf(columnNames, "");
-            List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = columnNames[0].ToString() }).ToList();
-            SelectList l = new SelectList(list);
+            List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = x }).ToList();
 
-            ViewBag.Columns = Helpers.CurrentClientUpload.Columns;
+            ViewBag.Columns = list;
 
             //Collection
             return View(new Property());
+        }
+
+        public JsonResult GetPropertiesFromClient(int Id)
+        {
+            string[] columnNames = Helpers.CurrentClientUpload.Columns.ToArray();
+            List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = x }).ToList();
+
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
     }
 }
