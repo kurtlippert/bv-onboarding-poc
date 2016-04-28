@@ -1,4 +1,4 @@
-﻿@model BroadvineOnboard.Models.Property
+﻿@model BroadvineOnboard.Models.PropertyViewModel
 
 @{
     ViewBag.Title = "Import";
@@ -97,7 +97,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Area.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AreaName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input class="property-field" name="Name" />
                 @*@Html.DropDownList("AreaID", null, htmlAttributes: new { @class = "form-control" })
@@ -165,7 +165,7 @@
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.FoodAndBeverage)
-                    @Html.ValidationMessageFor(model => model.FoodAndBeverage, "", new { @class = "text-danger" })*@
+                    @Html.ValidationMessageFor(model => model.FoodAndBeverage, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>

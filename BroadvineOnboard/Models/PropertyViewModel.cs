@@ -61,5 +61,13 @@ namespace BroadvineOnboard.Models
         [Required]
         public int CompanyID { get; set; }
         public virtual Company Company { get; set; }
+
+        [Required]
+        [DisplayName("Company Name")]
+        public string CompanyName { get; set; }
+
+        [Required]
+        [DisplayName("Area Name")]
+        public string AreaName { get; set; }
     }
 }

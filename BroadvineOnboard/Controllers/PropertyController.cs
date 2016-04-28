@@ -23,7 +23,7 @@ namespace BroadvineOnboard.Controllers
             //var properties = db.Properties.Include(p => p.Area);
             //properties.All(p => p.ClientID == BroadvineOnboard.Helpers.CurrentClientID);
 
-            if (!string.IsNullOrEmpty(msg))  ViewBag.Error = msg;
+            if (!string.IsNullOrEmpty(msg)) ViewBag.Error = msg;
 
             return View(db.Properties.ToList());
         }
@@ -189,7 +189,7 @@ namespace BroadvineOnboard.Controllers
         }
 
         [HttpPost]
-        public ActionResult Sheet(Property viewModel)
+        public ActionResult Sheet(PropertyViewModel viewModel)
         {
             return View("Index", viewModel);
         } 
@@ -218,7 +218,7 @@ namespace BroadvineOnboard.Controllers
             ViewBag.Columns = list;
 
             //Collection
-            return View(new Property());
+            return View(new PropertyViewModel());
         }
 
         public JsonResult GetPropertiesFromClient(int Id)
