@@ -32,8 +32,8 @@ namespace BroadvineOnboard
                 }
 
                 //TODO: figure out why this was original, 
-                //return Guid.Parse(HttpContext.Current.Session[CurrentUserID].ToString());
-                return Guid.Parse(CurrentUserID.ToString());
+                return Guid.Parse(HttpContext.Current.Session[CurrentUserID].ToString());
+                //return Guid.Parse(CurrentUserID.ToString());
             }
         }
 
