@@ -4,16 +4,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BroadvineOnboard.Models
 {
-    public class Property
+    public class PropertyViewModel
     {
         public Guid ClientID { get; set; }
         public int ID { get; set; }
         [Required]
         [DisplayName("Property Name")]
-        public string Name{ get; set; }
+        public string Name { get; set; }
         [Required]
         [DisplayName("Property Code")]
-        public string Code{ get; set; }
+        public string Code { get; set; }
         [Required]
         [DisplayName("Address")]
         public string Address1 { get; set; }
@@ -61,11 +61,5 @@ namespace BroadvineOnboard.Models
         [Required]
         public int CompanyID { get; set; }
         public virtual Company Company { get; set; }
-
-        public Property()
-        {
-            this.ClientID = Helpers.CurrentClientID;
-        }
-
     }
 }

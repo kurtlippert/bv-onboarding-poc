@@ -252,6 +252,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Property.cs" />
+    <Compile Include="Models\PropertyViewModel.cs" />
     <Compile Include="Models\RevenueSegment.cs" />
     <Compile Include="Models\RevenueSegmentGroup.cs" />
     <Compile Include="Models\WagePTEB.cs" />
@@ -589,7 +590,7 @@
     <Content Include="Content\kendo\web\Uniform\sprite_2x.png" />
     <Content Include="Content\kendo\web\Uniform\sprite_kpi.png" />
     <Content Include="Content\kendo\web\Uniform\sprite_kpi_2x.png" />
-    <Content Include="Content\logo-broadvine.gif" />
+    <Content Include="Content\logo-broadvine.png" />
     <Content Include="Content\logo-broadvine-big.png" />
     <Content Include="default.html" />
     <Content Include="favicon.ico" />

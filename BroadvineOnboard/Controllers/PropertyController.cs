@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using BroadvineOnboard.DAL;
 using BroadvineOnboard.Models;
-using BroadvineOnboard.Migrations;
 using System.IO;
 
 namespace BroadvineOnboard.Controllers
@@ -190,9 +189,9 @@ namespace BroadvineOnboard.Controllers
         }
 
         [HttpPost]
-        public ActionResult Sheet()
+        public ActionResult Sheet(Property viewModel)
         {
-            return View();
+            return View("Index", viewModel);
         } 
 
         [HttpPost]
