@@ -22,12 +22,12 @@ namespace BroadvineOnboard
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
-                "~/Scripts/kendo/kendo.ui.core.min.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+            //    "~/Scripts/kendo/kendo.ui.core.min.js"));
 
-            bundles.Add(new StyleBundle("~/Content/kendo").Include(
-                "~/Content/kendo/web/kendo.common.core.min.css",
-                "~/Content/kendo/web/kendo.bootstrap.min.css"));
+            //bundles.Add(new StyleBundle("~/Content/kendo").Include(
+            //    "~/Content/kendo/web/kendo.common.core.min.css",
+            //    "~/Content/kendo/web/kendo.bootstrap.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
