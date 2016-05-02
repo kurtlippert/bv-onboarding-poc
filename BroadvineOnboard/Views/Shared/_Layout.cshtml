@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Broadvine</title>
-    @Styles.Render("~/Content/css")
-   @* @Styles.Render("~/Content/kendo")*@
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/kendo")*@
+
+    <link rel="stylesheet" href="~/Content/styles/app.min.css">
+    <script src="~/Scripts/jquery-bundle.min.js"></script>
+    <script src="~/Scripts/bootstrap-bundle.min.js"></script>
+    <script src="~/Scripts/kendo-bundle.min.js"></script>
 
 </head>
 <body>
@@ -75,8 +75,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
 
     @*<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>*@
     @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>*@

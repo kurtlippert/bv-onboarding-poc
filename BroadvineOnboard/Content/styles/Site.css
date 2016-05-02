@@ -24,7 +24,7 @@ textarea {
 }
 
 .logo{
-    background: url(logo-broadvine.png) no-repeat;
+    background: url(../images/logo-broadvine.png) no-repeat;
     width:250px;
     height:44px;
 }
@@ -45,13 +45,13 @@ textarea {
     background-position: center center;
 }
 .slide1 {
-    background-image: url(jumbo-01.jpg);
+    background-image: url(../images/jumbo-01.jpg);
 }
 .slide2 {
-    background-image: url(jumbo-02.jpg);
+    background-image: url(../images/jumbo-02.jpg);
 }
 .slide3 {
-    background-image: url(jumbo-03.jpg);
+    background-image: url(../images/jumbo-03.jpg);
 }
 
 #bg-fade-carousel{
@@ -123,7 +123,7 @@ textarea {
 {
     opacity:.4;
     margin-top:75px;
-    background: url(logo-broadvine-big.png) no-repeat;
+    background: url(../images/logo-broadvine-big.png) no-repeat;
     background-position: center center;
     min-width:200px;
     min-height:83px;

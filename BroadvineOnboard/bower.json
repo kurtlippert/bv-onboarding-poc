@@ -7,6 +7,11 @@
   "private": true,
   "dependencies": {
     "jquery": "^2.2.3",
-    "jquery-validation": "^1.15.0"
+    "jquery-validation": "^1.15.0",
+    "jquery-validation-unobtrusive": "^3.2.6",
+    "modernizr": "^3.3.1",
+    "bootstrap": "^3.3.6",
+    "respond": "respond-minmax#^1.4.2",
+    "kendo-ui": "kendo-ui-core#^2016.1.420"
   }
 }

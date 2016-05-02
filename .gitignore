@@ -237,3 +237,13 @@ _Pvt_Extensions
 
 # Bower Components
 bower_components/
+
+# Bundled items generated through gulp
+/BroadvineOnboard/Content/styles/app.min.css
+/BroadvineOnboard/Content/styles/app.min.css.map
+/BroadvineOnboard/Scripts/bootstrap-bundle.min.js
+/BroadvineOnboard/Scripts/bootstrap-bundle.min.js.map
+/BroadvineOnboard/Scripts/jquery-bundle.min.js
+/BroadvineOnboard/Scripts/jquery-bundle.min.js.map
+/BroadvineOnboard/Scripts/kendo-bundle.min.js
+/BroadvineOnboard/Scripts/kendo-bundle.min.js.map
