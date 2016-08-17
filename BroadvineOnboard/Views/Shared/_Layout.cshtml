@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Broadvine</title>
 
-    <link rel="stylesheet" href="~/Content/styles/app.min.css">
+    @*<link rel="stylesheet" href="~/Content/styles/app.min.css">
     <script src="~/Scripts/jquery-bundle.min.js"></script>
     <script src="~/Scripts/bootstrap-bundle.min.js"></script>
-    <script src="~/Scripts/kendo-bundle.min.js"></script>
+    <script src="~/Scripts/kendo-bundle.min.js"></script>*@
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.714/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.714/styles/kendo.bootstrap.min.css" />
+    @Styles.Render("~/Content/css")
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//kendo.cdn.telerik.com/2016.2.714/js/kendo.all.min.js"></script>
 
 </head>
 <body>
@@ -75,8 +84,8 @@
         </footer>
     </div>
 
-    @*@Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
 
     @*<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>*@
     @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>*@

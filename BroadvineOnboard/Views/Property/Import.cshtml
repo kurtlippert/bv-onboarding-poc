@@ -231,10 +231,12 @@
             transport: {
                 read: {
                     url: "@Url.Action("GetPropertiesFromClient", "Property")",
-                    data: { Id: @Url. }
+                    data: { Id: @Model.ClientID }
                 }
             }
         });
+
+        console.log(propertyData);
 
         $(".property-field").kendoComboBox({
             dataTextField: "Text",

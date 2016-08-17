@@ -30,9 +30,9 @@ namespace BroadvineOnboard
             //    "~/Content/kendo/web/kendo.bootstrap.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/font-awesome.css"));
+                      "~/Content/styles/content.css",
+                      "~/Content/styles/Site.css",
+                      "~/Content/styles/font-awesome.css"));
         }
     }
 }
