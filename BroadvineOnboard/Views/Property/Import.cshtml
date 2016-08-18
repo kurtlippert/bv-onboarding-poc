@@ -238,12 +238,35 @@
 
         console.log(propertyData);
 
+        var fieldData = [];
+
         $(".property-field").kendoComboBox({
             dataTextField: "Text",
             dataValueField: "Value",
             dataSource: propertyData,
             filter: "contains",
-            height: 100
+            select: function (e) {
+                var itemIndex = e.item.index();
+                var dataItem = this.dataItem(itemIndex);
+
+                console.log(e);
+                console.log(dataItem);
+                //fieldData[itemIndex].previous = 
+                //if (!fieldData)
+                //if (!previous) {
+                //    previous = dataItem.Value
+                //}
+                //console.log(dataItem);
+            }
+            //height: 100
+        }).each(function(index) {
+            //console.log(this);
+            fieldData.push({
+                name: this.name,
+                previous: -1,
+            })
         });
+
+        console.log(fieldData);
     });
 </script>

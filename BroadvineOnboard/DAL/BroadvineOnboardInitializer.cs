@@ -3,7 +3,7 @@ using BroadvineOnboard.Models;
 
 namespace BroadvineOnboard.DAL
 {
-    public class BroadvineOnboardInitializer : System.Data.Entity.DropCreateDatabaseAlways<BroadvineOnboardContext> //CreateDatabaseIfNotExists<BroadvineOnboardContext> //
+    public class BroadvineOnboardInitializer : System.Data.Entity.CreateDatabaseIfNotExists<BroadvineOnboardContext> //DropCreateDatabaseAlways<BroadvineOnboardContext> //CreateDatabaseIfNotExists<BroadvineOnboardContext> //
     {
         protected override void Seed(BroadvineOnboardContext context)
         {
