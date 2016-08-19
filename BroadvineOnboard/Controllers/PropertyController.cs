@@ -176,17 +176,42 @@ namespace BroadvineOnboard.Controllers
             //    int totalRoomsCol = int.Parse(viewModel.TotalRooms);
             //    int address1Col = int.Parse(viewModel.Address1);
 
-            foreach (System.Reflection.FieldInfo field in typeof(Property).GetFields())
+            List<Property> properties = new List<Property>();
+
+            foreach (LinqToExcel.Row row in Helpers.CurrentClientUpload.Rows)
             {
-                try
+                Property property = new Property();
+                foreach (System.Reflection.PropertyInfo field in property.GetType().GetProperties())
                 {
-                    field.SetValue(this, values[field.ToString()]);
+                    try
+                    {
+                        int columnNumber = int.Parse(values[field.Name]);
+                        field.SetValue(property, row[columnNumber]);
+
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Write(e.Message);
+                    }
                 }
-                catch (Exception e)
-                {
-                    Console.Write(e.Message);
-                }
+
+                properties.Add(property);
             }
+
+            //foreach (System.Reflection.PropertyInfo field in property.GetType().GetProperties())
+            //{
+            //    try
+            //    {
+                    
+
+            //        field.SetValue(property, values[field.Name]);
+                    
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.Write(e.Message);
+            //    }
+            //}
 
             return RedirectToAction("Index");
 
