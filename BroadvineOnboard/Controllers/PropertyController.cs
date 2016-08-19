@@ -142,6 +142,57 @@ namespace BroadvineOnboard.Controllers
         //  Excel spreadsheet stuff ###########################################################################################################################################################################################
 
         [HttpPost]
+        public ActionResult Sheet(FormCollection values)
+        {
+            //foreach (string n in values)
+            //{
+
+            //}
+
+            //int nameCol = int.Parse(values["Name"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int address1Col = int.Parse(values["Address1"]);
+            //int address2Col = int.Parse(values["Address2"]);
+            //int cityCol = int.Parse(values["City"]);
+            //int stateCol = int.Parse(values["State"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int codeCol = int.Parse(values["Code"]);
+            //int codeCol = int.Parse(values["Code"]);
+
+            //int nameCol = int.Parse(viewModel.Name);
+            //    int codeCol = int.Parse(viewModel.Code);
+            //    int address1Col = int.Parse(viewModel.Address1);
+            //    int address2Col = int.Parse(viewModel.Address2);
+            //    int cityCol = int.Parse(viewModel.City);
+            //    int stateCol = int.Parse(viewModel.State);
+            //    int postalCodeCol = int.Parse(viewModel.PostalCode);
+            //    int brandCodeCol = int.Parse(viewModel.BrandCode);
+            //    int smithTravelCodeCol = int.Parse(viewModel.SmithTravelCode);
+            //    int totalRoomsCol = int.Parse(viewModel.TotalRooms);
+            //    int address1Col = int.Parse(viewModel.Address1);
+
+            foreach (System.Reflection.FieldInfo field in typeof(Property).GetFields())
+            {
+                try
+                {
+                    field.SetValue(this, values[field.ToString()]);
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e.Message);
+                }
+            }
+
+            return RedirectToAction("Index");
+
+        }
+
+        [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
             string failedMessage = "";
@@ -188,11 +239,77 @@ namespace BroadvineOnboard.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Sheet(PropertyViewModel viewModel)
-        {
-            return View("Index", viewModel);
-        } 
+        //[HttpPost]
+        //public ActionResult Sheet(PropertyViewModel viewModel)
+        //{
+        //    //Helpers.CurrentClientUpload.Columns.
+        //    var data = Helpers.CurrentClientUpload.Rows;
+
+        //    int nameCol = int.Parse(viewModel.Name);
+        //    int codeCol = int.Parse(viewModel.Code);
+        //    int address1Col = int.Parse(viewModel.Address1);
+        //    int address2Col = int.Parse(viewModel.Address2);
+        //    int cityCol = int.Parse(viewModel.City);
+        //    int stateCol = int.Parse(viewModel.State);
+        //    int postalCodeCol = int.Parse(viewModel.PostalCode);
+        //    int brandCodeCol = int.Parse(viewModel.BrandCode);
+        //    int smithTravelCodeCol = int.Parse(viewModel.SmithTravelCode);
+        //    int totalRoomsCol = int.Parse(viewModel.TotalRooms);
+        //    int address1Col = int.Parse(viewModel.Address1);
+
+        //    List<Property> properties = new List<Property>();
+        //    foreach (var row in data)
+        //    {
+        //        string Name = row[int.Parse(viewModel.Name)].Value.ToString().Trim();
+        //        string Code = row[1].Value.ToString().Trim();
+        //        string Address1 = row[2].Value.ToString().Trim();
+        //        string Address2 = row[3].Value.ToString().Trim();
+        //        string City = row[4].Value.ToString().Trim();
+        //        string State = row[5].Value.ToString().Trim();
+        //        string PostalCode = row[6].Value.ToString().Trim();
+        //        string BrandCode = row[7].Value.ToString().Trim();
+        //        string SmithTravelCode = row[8].Value.ToString().Trim();
+        //        int TotalRooms = row[9].Value;
+        //        string URL = row[10].Value.ToString().Trim();
+        //        string Phone = row[11].Value.ToString().Trim();
+        //        string Email = row[12].Value.ToString().Trim();
+        //        bool FoodAndBeverage = (bool)row[13].Value;
+        //        Enums.PropertyServiceType ServiceType = (Enums.PropertyServiceType)row[14].Value;
+        //        Enums.PropertyStatus StatusType = (Enums.PropertyStatus)row[15].Value;
+        //        Enums.PropertyRelationship RelationshipType = (Enums.PropertyRelationship)row[16].Value;
+        //        Enums.PropertyMaturity MaturityType = (Enums.PropertyMaturity)row[17].Value;
+        //        Enums.PropertyCalendar CalendarType = (Enums.PropertyCalendar)row[18].Value;
+        //        Company Company = (Company)row[19].Value;
+        //        Area Area = (Area)row[20].Value;
+
+        //        properties.Add(new Property
+        //        {
+        //            Name = row[0].Value.ToString().Trim(),
+        //            Code = row[1].Value.ToString().Trim(),
+        //            Address1 = row[2].Value.ToString().Trim(),
+        //            Address2 = row[3].Value.ToString().Trim(),
+        //            City = row[4].Value.ToString().Trim(),
+        //            State = row[5].Value.ToString().Trim(),
+        //            PostalCode = row[6].Value.ToString().Trim(),
+        //            BrandCode = row[7].Value.ToString().Trim(),
+        //            SmithTravelCode = row[8].Value.ToString().Trim(),
+        //            TotalRooms = (int)row[9].Value,
+        //            URL = row[10].Value.ToString().Trim(),
+        //            Phone = row[11].Value.ToString().Trim(),
+        //            Email = row[12].Value.ToString().Trim(),
+        //            FoodAndBeverage = (bool)row[13].Value,
+        //            ServiceType = (Enums.PropertyServiceType)row[14].Value,
+        //            StatusType = (Enums.PropertyStatus)row[15].Value,
+        //            RelationshipType = (Enums.PropertyRelationship)row[16].Value,
+        //            MaturityType = (Enums.PropertyMaturity)row[17].Value,
+        //            CalendarType = (Enums.PropertyCalendar)row[18].Value,
+        //            Company = (Company)row[19].Value,
+        //            Area = (Area)row[20].Value
+        //        });            
+        //    }
+
+        //    return View("Index", properties.AsEnumerable());
+        //} 
 
         [HttpPost]
         public ActionResult WorkSheet(string worksheetName)
@@ -205,7 +322,6 @@ namespace BroadvineOnboard.Controllers
         }
 
         //  Import 
-
         public ActionResult Import()
         {
             string[] columnNames = Helpers.CurrentClientUpload.Columns.ToArray();
@@ -213,7 +329,12 @@ namespace BroadvineOnboard.Controllers
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "Name");
 
             Array.IndexOf(columnNames, "");
-            List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = x }).ToList();
+            //List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = columnNames. }).ToList();
+            List<SelectListItem> list = new List<SelectListItem>();
+            for (int i = 0; i < columnNames.Length; i++)
+            {
+                list.Add(new SelectListItem { Text = columnNames[i], Value = i.ToString() });
+            }
 
             ViewBag.Columns = list;
 
@@ -224,7 +345,12 @@ namespace BroadvineOnboard.Controllers
         public JsonResult GetPropertiesFromClient(int Id)
         {
             string[] columnNames = Helpers.CurrentClientUpload.Columns.ToArray();
-            List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = x }).ToList();
+            //List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = x }).ToList();
+            List<SelectListItem> list = new List<SelectListItem>();
+            for (int i = 0; i < columnNames.Length; i++)
+            {
+                list.Add(new SelectListItem { Text = columnNames[i], Value = i.ToString() });
+            }
 
             return Json(list, JsonRequestBehavior.AllowGet);
         }
