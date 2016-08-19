@@ -17,7 +17,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10">                
                 <input class="property-field" name="Code" />
                 @*@Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })*@
@@ -236,37 +236,17 @@
             }
         });
 
-        console.log(propertyData);
+        //console.log(propertyData);
 
-        var fieldData = [];
+        //var fieldData = [];
 
         $(".property-field").kendoComboBox({
             dataTextField: "Text",
             dataValueField: "Value",
             dataSource: propertyData,
-            filter: "contains",
-            select: function (e) {
-                var itemIndex = e.item.index();
-                var dataItem = this.dataItem(itemIndex);
-
-                console.log(e);
-                console.log(dataItem);
-                //fieldData[itemIndex].previous = 
-                //if (!fieldData)
-                //if (!previous) {
-                //    previous = dataItem.Value
-                //}
-                //console.log(dataItem);
-            }
-            //height: 100
-        }).each(function(index) {
-            //console.log(this);
-            fieldData.push({
-                name: this.name,
-                previous: -1,
-            })
+            filter: "contains"
         });
 
-        console.log(fieldData);
+        //console.log(fieldData);
     });
 </script>
