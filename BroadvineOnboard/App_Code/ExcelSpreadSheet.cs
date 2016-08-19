@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using LinqToExcel;
+using System.Linq;
 
 namespace BroadvineOnboard
 {
@@ -34,6 +35,17 @@ namespace BroadvineOnboard
             {
                 if (columns == null) columns = excel.GetColumnNames(SelectedWorksheet);
                 return columns;
+            }
+        }
+
+        private IQueryable<Row> rows;
+        public IQueryable<Row> Rows
+        {
+            get
+            {
+                //rows = excel.Worksheet(this.SelectedWorksheet).
+                if (rows == null) rows = from d in excel.Worksheet(this.SelectedWorksheet) select d;
+                return rows;
             }
         }
 
