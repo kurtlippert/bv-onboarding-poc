@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">                
-                <input class="property-field" name="Code" />
+                <select class="property-field" name="Code"></select>
                 @*@Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })*@
                
@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="Name" />
+                <select class="property-field" name="Name" ></select>
                 @*@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })*@
             </div>
@@ -37,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="Address1" />
+                <select class="property-field" name="Address1" ></select>
 
                 @*@Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })*@
@@ -47,7 +47,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Address2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="Address2" />
+                <select class="property-field" name="Address2" ></select>
 
                 @*@Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })*@
@@ -57,7 +57,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="City" />
+                <select class="property-field" name="City" ></select>
 
                 @*@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })*@
@@ -67,7 +67,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="State" />
+                <select class="property-field" name="State" ></select>
 
                 @*@Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })*@
@@ -77,7 +77,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="PostalCode" />
+                <select class="property-field" name="PostalCode" ></select>
                 @*@Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })*@
             </div>
@@ -86,7 +86,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AreaName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="AreaName" />
+                <select class="property-field" name="AreaName" ></select>
                 @*@Html.DropDownList("AreaID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.AreaID, "", new { @class = "text-danger" })*@
             </div>
@@ -95,7 +95,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TotalRooms, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="TotalRooms" />
+                <select class="property-field" name="TotalRooms" ></select>
                 @*@Html.EditorFor(model => model.TotalRooms, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.TotalRooms, "", new { @class = "text-danger" })*@
             </div>
@@ -104,7 +104,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.URL, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="URL" />
+                <select class="property-field" name="URL" ></select>
                 @*@Html.EditorFor(model => model.URL, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.URL, "", new { @class = "text-danger" })*@
             </div>
@@ -113,7 +113,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="Phone" />
+                <select class="property-field" name="Phone" ></select>
                 @*@Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })*@
             </div>
@@ -122,7 +122,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="Email" />
+                <select class="property-field" name="Email" ></select>
                 @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
             </div>
@@ -133,7 +133,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BrandCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="BrandCode" />
+                <select class="property-field" name="BrandCode" ></select>
                 @*@Html.EditorFor(model => model.BrandCode, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.BrandCode, "", new { @class = "text-danger" })*@
             </div>
@@ -142,7 +142,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SmithTravelCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="SmithTravelCode" />
+                <select class="property-field" name="SmithTravelCode" ></select>
                 @*@Html.EditorFor(model => model.SmithTravelCode, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.SmithTravelCode, "", new { @class = "text-danger" })*@
             </div>
@@ -150,17 +150,18 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FoodAndBeverage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
+                <input type="checkbox" name="FoodAndBeverage" style="margin: 10px 0 0" />
+                @*<div class="checkbox">
                     @Html.EditorFor(model => model.FoodAndBeverage)
                     @Html.ValidationMessageFor(model => model.FoodAndBeverage, "", new { @class = "text-danger" })
-                </div>
+                </div>*@
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ServiceType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="ServiceType" />
+                <select class="property-field" name="ServiceType" ></select>
                 @*@Html.EnumDropDownListFor(model => model.ServiceType, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ServiceType, "", new { @class = "text-danger" })*@
             </div>
@@ -169,7 +170,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StatusType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="StatusType" />
+                <select class="property-field" name="StatusType" ></select>
                 @*@Html.EnumDropDownListFor(model => model.StatusType, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.StatusType, "", new { @class = "text-danger" })*@
             </div>
@@ -178,7 +179,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RelationshipType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="RelationshipType" />
+                <select class="property-field" name="RelationshipType" ></select>
                 @*@Html.EnumDropDownListFor(model => model.RelationshipType, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.RelationshipType, "", new { @class = "text-danger" })*@
             </div>
@@ -187,7 +188,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="CompanyName" />
+                <select class="property-field" name="CompanyName" ></select>
                 @*@Html.DropDownList("CompanyID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.CompanyID, "", new { @class = "text-danger" })*@
             </div>
@@ -196,7 +197,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MaturityType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="MaturityType" />
+                <select class="property-field" name="MaturityType" />
                 @*@Html.EnumDropDownListFor(model => model.MaturityType, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.MaturityType, "", new { @class = "text-danger" })*@
             </div>
@@ -205,7 +206,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CalendarType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="property-field" name="CalendarType" />
+                <select class="property-field" name="CalendarType" />
                 @*@Html.EnumDropDownListFor(model => model.CalendarType, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.CalendarType, "", new { @class = "text-danger" })*@
             </div>
@@ -227,26 +228,25 @@
 <script>
     $(document).ready(function() {
 
-        var propertyData = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "@Url.Action("GetPropertiesFromClient", "Property")",
-                    data: { Id: @Model.ClientID }
-                }
-            }
-        });
-
-        //console.log(propertyData);
-
-        //var fieldData = [];
-
-        $(".property-field").kendoComboBox({
+        $(".property-field").kendoDropDownList({
             dataTextField: "Text",
             dataValueField: "Value",
-            dataSource: propertyData,
-            filter: "contains"
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetPropertiesFromClient", "Property")",
+                        data: { Id: @Model.ClientID }
+                    }
+                }
+            },
+            dataBound: adjustDropDownWidth
         });
 
-        //console.log(fieldData);
+        function adjustDropDownWidth(e) {
+            e.sender.unbind("dataBound");
+            var listContainer = e.sender.list.closest(".k-list-container");
+            listContainer.width(listContainer.width() + kendo.support.scrollbar() + 10);
+            $(".property-field").css("width", listContainer.width() + 6);
+        } 
     });
 </script>
