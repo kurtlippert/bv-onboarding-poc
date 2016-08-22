@@ -348,6 +348,7 @@ namespace BroadvineOnboard.Controllers
             string[] columnNames = Helpers.CurrentClientUpload.Columns.ToArray();
             //List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = x }).ToList();
             List<SelectListItem> list = new List<SelectListItem>();
+            list.Add(new SelectListItem { Text = "(Don't Map)", Value = "-1" });
             for (int i = 0; i < columnNames.Length; i++)
             {
                 list.Add(new SelectListItem { Text = columnNames[i], Value = i.ToString() });
