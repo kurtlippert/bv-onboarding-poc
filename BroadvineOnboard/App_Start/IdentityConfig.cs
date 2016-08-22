@@ -129,7 +129,7 @@ namespace BroadvineOnboard
         private static void InitializeUsers()
         {
             var userManager = new UserManager<Models.ApplicationUser>(new UserStore<Models.ApplicationUser>(new Models.ApplicationDbContext()));
-            //InitializeUser(userManager, "brian@vizualdata.com", "$ysop1114585", _roles[0], _roles[1]);
+            InitializeUser(userManager, "brian@vizualdata.com", "$ysop1114585", _roles[0], _roles[1]);
             InitializeUser(userManager, "klippert@broadvine.com", "Kl007001", _roles[0], _roles[1]);
 
             //InitializeUser(userManager, "user@domain.com", "$ysop1114585", _roles[0], _roles[1]);

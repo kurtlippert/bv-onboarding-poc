@@ -15,7 +15,7 @@ namespace BroadvineOnboard.Controllers
     public class PropertyController : Controller
     {
         private BroadvineOnboardContext db = new BroadvineOnboardContext();
-        
+
         // GET: Property
         public ActionResult Index(string msg = "")
         {
@@ -144,49 +144,29 @@ namespace BroadvineOnboard.Controllers
         [HttpPost]
         public ActionResult Sheet(FormCollection values)
         {
-            //foreach (string n in values)
-            //{
-
-            //}
-
-            //int nameCol = int.Parse(values["Name"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int address1Col = int.Parse(values["Address1"]);
-            //int address2Col = int.Parse(values["Address2"]);
-            //int cityCol = int.Parse(values["City"]);
-            //int stateCol = int.Parse(values["State"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int codeCol = int.Parse(values["Code"]);
-            //int codeCol = int.Parse(values["Code"]);
-
-            //int nameCol = int.Parse(viewModel.Name);
-            //    int codeCol = int.Parse(viewModel.Code);
-            //    int address1Col = int.Parse(viewModel.Address1);
-            //    int address2Col = int.Parse(viewModel.Address2);
-            //    int cityCol = int.Parse(viewModel.City);
-            //    int stateCol = int.Parse(viewModel.State);
-            //    int postalCodeCol = int.Parse(viewModel.PostalCode);
-            //    int brandCodeCol = int.Parse(viewModel.BrandCode);
-            //    int smithTravelCodeCol = int.Parse(viewModel.SmithTravelCode);
-            //    int totalRoomsCol = int.Parse(viewModel.TotalRooms);
-            //    int address1Col = int.Parse(viewModel.Address1);
-
             List<Property> properties = new List<Property>();
+
+            bool isHeader = true;
 
             foreach (LinqToExcel.Row row in Helpers.CurrentClientUpload.Rows)
             {
+                //  TODO:   Need to take into account the start row of the data.
+                //          Currently, it is assumed that the first row is data, whereas it is typically a header row
+                if (isHeader) { isHeader = false; continue; }
+
+                //  Check if the value of the first cell in the current row is empty; if it is, then let's assume we've reached the end of records
+                if (string.IsNullOrEmpty(row[0].Value.ToString())) break;
+
                 Property property = new Property();
                 foreach (System.Reflection.PropertyInfo field in property.GetType().GetProperties())
                 {
+                    if (!values.AllKeys.Contains(field.Name) || string.IsNullOrEmpty(values[field.Name])) continue;
                     try
                     {
                         int columnNumber = int.Parse(values[field.Name]);
-                        field.SetValue(property, row[columnNumber]);
+                        if (columnNumber < 1) continue;
+
+                        field.SetValue(property, row[columnNumber].Value.ToString());
 
                     }
                     catch (Exception e)
@@ -198,20 +178,16 @@ namespace BroadvineOnboard.Controllers
                 properties.Add(property);
             }
 
-            //foreach (System.Reflection.PropertyInfo field in property.GetType().GetProperties())
-            //{
-            //    try
-            //    {
-                    
+            //  TODO:   Updating the database since we are currently being redirected to the listings page. 
+            //          This will need to change, as we want to present a sample of the data before committing to the database.
+            foreach (Property p in properties)
+            {
+                db.Properties.Add(p);
+                db.Entry(p).State = EntityState.Added;
+            }
 
-            //        field.SetValue(property, values[field.Name]);
-                    
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Console.Write(e.Message);
-            //    }
-            //}
+            db.SaveChanges();
+
 
             return RedirectToAction("Index");
 
@@ -238,7 +214,7 @@ namespace BroadvineOnboard.Controllers
 
                         if (excel.WorkSheetNames.Count() == 1) return RedirectToAction("Import");
                         else return RedirectToAction("WorkSheet");
-                        
+
                     }
                     catch (Exception ex)
                     {
