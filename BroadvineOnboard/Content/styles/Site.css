@@ -137,3 +137,7 @@ textarea {
 .float-right{
     float:right;
 }
+
+.is-hidden {
+    display: none;
+}
