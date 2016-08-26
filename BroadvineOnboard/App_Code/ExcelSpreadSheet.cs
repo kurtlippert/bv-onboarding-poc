@@ -36,39 +36,7 @@ namespace BroadvineOnboard
         {
             get
             {
-                if (columns == null)
-                {
-                    //var rows = from d in excel.Worksheet(this.SelectedWorksheet) select d;
-                    var rows = Rows;
-                    var rowsEnumerable = (IEnumerable<Row>)Rows;
-                    Cell[] c = rowsEnumerable.ElementAt(0).ToArray();
-                    
-
-                    var result = c.Select(x => x.Value.ToString());
-
-                    columns = result;
-                    
-
-
-                    //var rowWithColumnHeaders = -1;
-
-                    //int currentRow = -1;
-                    //foreach (var row in rows)
-                    //{
-                    //    currentRow++; if (currentRow < RowStart) continue;
-
-                    //}
-
-                    //columns = rows.ElementAt(RowStart).;
-
-                    //List<string> strCols = new List<string>();
-                    //foreach (var row in rows)
-                    //{
-                    //    strCols.Add(row[])
-                    //}
-                }
-
-
+                if (columns == null) columns = Rows.Skip(0).First().ToArray().Select(x => x.Value.ToString());
                 return columns;
             }
         }
