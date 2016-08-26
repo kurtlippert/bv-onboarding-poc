@@ -6,52 +6,64 @@
 
 <h2>Department Listing</h2>
 
-<p>
-    @Html.ActionLink("Create New Department", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartmentGroup.DepartmentGroupCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartmentCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartmentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProfitAndLoss)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProfitCenterDistributed)
-        </th>
-        <th></th>
-    </tr>
+@using (Html.BeginForm("Index", "Departments", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p class="left">
+        @Html.ActionLink("Create New Department", "Create")
+        &nbsp;or&nbsp;
+        <label for="file" style="display:inline-block;">Upload spreadsheet:</label> &nbsp;
+        <input type="file" name="file" id="file" style="display:inline-block;" />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartmentGroup.DepartmentGroupCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartmentCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartmentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfitAndLoss)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfitCenterDistributed)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DepartmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DepartmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DepartmentID })
-        </td>
-    </tr>
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </p>
+    <p class="right">
+        @ViewBag.Error
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentGroup.DepartmentGroupCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfitAndLoss)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfitCenterDistributed)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentGroup.DepartmentGroupCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfitAndLoss)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfitCenterDistributed)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DepartmentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DepartmentID })
+            </td>
+        </tr>
+    }
+
+    </table>
 }
-
-</table>

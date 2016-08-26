@@ -1,0 +1,125 @@
+﻿@model BroadvineOnboard.Models.Department
+
+@{
+    ViewBag.Title = "Import";
+}
+
+<h2>Import Department Spreadsheet</h2>
+
+@using (Html.BeginForm("Sheet", "Department", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ClientID, new { htmlAttributes = new { @class = "form-control" } })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                <select class="department-field" name="DepartmentCode"></select>                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="DepartmentName" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentShortName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="DepartmentShortName" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SortOrder, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="SortOrder" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProfitAndLoss, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="ProfitAndLoss" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProfitCenterDistributed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="ProfitCenterDistributed" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="IsActive" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentIncludeInGOPID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="DepartmentIncludeInGOPID" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentGroupID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="DepartmentGroupID" ></select>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentGroup, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="department-field" name="DepartmentGroup" ></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Import" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script>
+    $(document).ready(function() {
+
+        $(".department-field").kendoDropDownList({
+            dataTextField: "Text",
+            dataValueField: "Value",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetDepartmentsFromClient", "Departments")",
+                        data: { Id: "@Model.ClientID" }
+                    }
+                }
+            },
+            dataBound: adjustDropDownWidth
+        });
+
+        function adjustDropDownWidth(e) {
+            e.sender.unbind("dataBound");
+            var listContainer = e.sender.list.closest(".k-list-container");
+            listContainer.width(listContainer.width() + kendo.support.scrollbar() + 10);
+            $(".department-field").css("width", listContainer.width() + 6);
+        } 
+    });
+</script>

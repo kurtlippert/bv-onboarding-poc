@@ -7,6 +7,9 @@ namespace BroadvineOnboard
     public class ExcelSpreadSheet
     {
         public string SelectedWorksheet { get; set; }
+
+        public int RowStart { get; set; }
+
         public string ControllerName { get; set; }
 
         private ExcelQueryFactory excel = null;
@@ -33,7 +36,39 @@ namespace BroadvineOnboard
         {
             get
             {
-                if (columns == null) columns = excel.GetColumnNames(SelectedWorksheet);
+                if (columns == null)
+                {
+                    //var rows = from d in excel.Worksheet(this.SelectedWorksheet) select d;
+                    var rows = Rows;
+                    var rowsEnumerable = (IEnumerable<Row>)Rows;
+                    Cell[] c = rowsEnumerable.ElementAt(0).ToArray();
+                    
+
+                    var result = c.Select(x => x.Value.ToString());
+
+                    columns = result;
+                    
+
+
+                    //var rowWithColumnHeaders = -1;
+
+                    //int currentRow = -1;
+                    //foreach (var row in rows)
+                    //{
+                    //    currentRow++; if (currentRow < RowStart) continue;
+
+                    //}
+
+                    //columns = rows.ElementAt(RowStart).;
+
+                    //List<string> strCols = new List<string>();
+                    //foreach (var row in rows)
+                    //{
+                    //    strCols.Add(row[])
+                    //}
+                }
+
+
                 return columns;
             }
         }
