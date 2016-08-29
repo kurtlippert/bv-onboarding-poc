@@ -5,13 +5,13 @@
 
     IEnumerable<SelectListItem> worksheetNames = ViewBag.WorkSheetNames;
 
-    int rowNumber = 0;
+    //int rowNumber = 0;
 
 }
 
 <h2>Select a Worksheet</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Worksheet", "Departments", FormMethod.Post, htmlAttributes: new { ng_app = "ob", ng_controller = "WorksheetController as vm" }))
 {
     @*<p>
         Your spreadsheet contains more than one worksheet. Please select the worksheet to import from.
@@ -35,10 +35,31 @@
     </div>
     <div class="form-group">
         <label for="worksheet-row">Which row number in this worksheet is the header row?</label>
-        @Html.TextBox("rowNumber", rowNumber, new { id = "worksheet-row", @class = "form-control" })
-        @*<input class="form-control" id="worksheet-row" type="text">*@
+        <br />
+        <input kendo-numeric-text-box k-options="vm.options" k-ng-model="vm.value" ng-blur="vm.onBlur()" id="worksheet-row" name="rowNumber" />
     </div>
     <div>
         <input type="submit" value="Next" class="btn btn-default" style="display: inline-block;" />
     </div>
 }
+
+<script>
+    angular
+        .module("ob", ["kendo.directives"])
+        .controller("WorksheetController", function () {
+            var vm = this;
+            var defaultValue = 1;
+
+            vm.value = defaultValue;
+            vm.options = {
+                min: "1",
+                format: "n0"
+            }
+
+            vm.onBlur = function () {
+                if (vm.value === null) {
+                    vm.value = defaultValue;
+                }
+            }
+        });
+</script>
