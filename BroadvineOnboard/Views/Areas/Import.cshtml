@@ -1,0 +1,62 @@
+﻿@model BroadvineOnboard.Models.Area
+
+@{
+    ViewBag.Title = "Import";
+}
+
+<h2>Import Area Spreadsheet</h2>
+
+@using (Html.BeginForm("Sheet", "Areas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ClientID, new { htmlAttributes = new { @class = "form-control" } })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="area-field" name="Name"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Import" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script>
+    $(document).ready(function() {
+
+        $(".area-field").kendoDropDownList({
+            dataTextField: "Text",
+            dataValueField: "Value",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetAreasFromClient", "Areas")",
+                        data: { Id: "@Model.ClientID" }
+                    }
+                }
+            },
+            dataBound: adjustDropDownWidth
+        });
+
+        function adjustDropDownWidth(e) {
+            e.sender.unbind("dataBound");
+            var listContainer = e.sender.list.closest(".k-list-container");
+            listContainer.width(listContainer.width() + kendo.support.scrollbar() + 10);
+            $(".area-field").css("width", listContainer.width() + 6);
+        }
+    });
+</script>
