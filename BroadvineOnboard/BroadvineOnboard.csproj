@@ -395,6 +395,8 @@
     <None Include="Project_Readme.html" />
     <Content Include="Views\Departments\Worksheet.cshtml" />
     <Content Include="Views\Departments\Import.cshtml" />
+    <Content Include="Views\Companies\Import.cshtml" />
+    <Content Include="Views\Companies\Worksheet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512022314083_db.resx">
