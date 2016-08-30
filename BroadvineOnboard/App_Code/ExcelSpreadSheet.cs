@@ -41,16 +41,45 @@ namespace BroadvineOnboard
         {
             //get
             //{
-            //    //if (columns == null) columns = Rows.Skip(0).First().ToArray().Select(x => x.Value.ToString());
-            //    //return columns;
+            //    if (columns == null)
+            //    {
+            //        TODO: Figure Out how to get this code to work :/
+            //        //columns = RowsNoHeader.Skip(6).First().ToArray().Select(x => x.Value.ToString());
+            //        //columns = RowsNoHeader.Skip(RowStart).First().ToArray().Select(x => x.Value.ToString());
+            //        var row = RowsNoHeader.Skip(6).First();
 
+            //        List<string> cols = new List<string>();
+            //        foreach (var cell in row.ToArray())
+            //        {
+            //            cols.Add(cell.Value.ToString());
+            //        }
+            //    }
 
+            //    return columns;
             //}
 
             get
             {
-                if (columns == null) columns = ReadExcelFileSAX(excelFileName);    // SAX
+                if (columns == null)
+                {
+                    columns = ReadExcelFileSAX(excelFileName);    // SAX
+                }
+
                 return columns;
+            }
+        }
+
+        private IQueryable<LinqToExcel.RowNoHeader> rowsNoHeader;
+        public IQueryable<LinqToExcel.RowNoHeader> RowsNoHeader
+        {
+            get
+            {
+                if (rowsNoHeader == null)
+                {
+                    rowsNoHeader = from d in excel.WorksheetNoHeader(this.SelectedWorksheet) select d;
+                }
+
+                return rowsNoHeader;
             }
         }
 
@@ -59,7 +88,11 @@ namespace BroadvineOnboard
         {
             get
             {
-                if (rows == null) rows = from d in excel.Worksheet(this.SelectedWorksheet) select d;
+                if (rows == null)
+                {
+                    rows = from d in excel.Worksheet(this.SelectedWorksheet) select d;
+                }
+
                 return rows;
             }
         }
