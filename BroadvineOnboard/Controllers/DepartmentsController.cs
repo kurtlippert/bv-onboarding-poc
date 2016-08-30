@@ -45,8 +45,7 @@ namespace BroadvineOnboard.Controllers
                         if (excel.WorkSheetNames.Count() == 1) excel.SelectedWorksheet = excel.WorkSheetNames.First().ToString();
                         Helpers.CurrentClientUpload = excel;
 
-                        if (excel.WorkSheetNames.Count() == 1) return RedirectToAction("Import");
-                        else return RedirectToAction("WorkSheet");
+                        return RedirectToAction("WorkSheet");
 
                     }
                     catch (Exception ex)
@@ -191,7 +190,6 @@ namespace BroadvineOnboard.Controllers
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "Name");
 
             Array.IndexOf(columnNames, "");
-            //List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = columnNames. }).ToList();
             List<SelectListItem> list = new List<SelectListItem>();
             for (int i = 0; i < columnNames.Length; i++)
             {
@@ -207,7 +205,6 @@ namespace BroadvineOnboard.Controllers
         public JsonResult GetDepartmentsFromClient(Guid Id)
         {
             string[] columnNames = Helpers.CurrentClientUpload.Columns.ToArray();
-            //List<SelectListItem> list = columnNames.Select(x => new SelectListItem { Text = x, Value = x }).ToList();
             List<SelectListItem> list = new List<SelectListItem>();
             list.Add(new SelectListItem { Text = "(Don't Map)", Value = "-1" });
             for (int i = 0; i < columnNames.Length; i++)
