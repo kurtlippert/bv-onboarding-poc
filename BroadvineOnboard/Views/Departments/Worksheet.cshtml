@@ -1,38 +1,26 @@
 ﻿@model BroadvineOnboard.Models.Property
 
 @{
-    ViewBag.Title = "Select Worksheet";
+    ViewBag.Title = "Additional Information";
 
     IEnumerable<SelectListItem> worksheetNames = ViewBag.WorkSheetNames;
-
-    //int rowNumber = 0;
-
 }
 
-<h2>Select a Worksheet</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Worksheet", "Departments", FormMethod.Post, htmlAttributes: new { ng_app = "ob", ng_controller = "WorksheetController as vm" }))
 {
-    @*<p>
-        Your spreadsheet contains more than one worksheet. Please select the worksheet to import from.
-    </p>
-
-    @Html.DropDownList("worksheetName", worksheetNames, htmlAttributes: new { @class = "form-control", @style = "display:inline-block;" })
-
-
-    <p>
-        Which row number in this worksheet is the header row?
-    </p>
-
-    <input type="text" class="form-control" />
-
-
-    <input type="submit" value="Next" class="btn btn-default" style="display: inline-block;"/>*@
-
-    <div class="form-group">
-        <label for="worksheet-dropdown">Your spreadsheet contains more than one worksheet. Please select the worksheet to import from.</label>
-        @Html.DropDownList("worksheetName", worksheetNames, htmlAttributes: new { id = "worksheet-dropdown", @class = "form-control" })
-    </div>
+    if (worksheetNames.Count() > 1)
+    {
+        <div class="form-group">
+            <label for="worksheet-dropdown">Your spreadsheet contains more than one worksheet. Please select the worksheet to import from.</label>
+            @Html.DropDownList("worksheetName", worksheetNames, htmlAttributes: new { id = "worksheet-dropdown", @class = "form-control" })
+        </div>
+    }
+    else
+    {
+        @Html.Hidden("worksheetName", worksheetNames.FirstOrDefault().Value)
+    }
     <div class="form-group">
         <label for="worksheet-row">Which row number in this worksheet is the header row?</label>
         <br />
@@ -44,22 +32,25 @@
 }
 
 <script>
-    angular
-        .module("ob", ["kendo.directives"])
-        .controller("WorksheetController", function () {
-            var vm = this;
-            var defaultValue = 1;
+    (function () {
+        angular
+            .module("ob", ["kendo.directives"])
+            .controller("WorksheetController", function () {
+                var vm = this;
+                var defaultValue = 1;
 
-            vm.value = defaultValue;
-            vm.options = {
-                min: "1",
-                format: "n0"
-            }
+                vm.value = defaultValue;
+                vm.options = {
+                    min: "1",
+                    max: "100",
+                    format: "n0"
+                };
 
-            vm.onBlur = function () {
-                if (vm.value === null) {
-                    vm.value = defaultValue;
-                }
-            }
-        });
+                vm.onBlur = function() {
+                    if (vm.value === null) {
+                        vm.value = defaultValue;
+                    }
+                };
+            });
+    })();
 </script>
