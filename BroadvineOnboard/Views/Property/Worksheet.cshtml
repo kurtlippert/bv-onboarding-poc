@@ -8,7 +8,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Worksheet", "Departments", FormMethod.Post, htmlAttributes: new { ng_app = "ob", ng_controller = "WorksheetController as vm" }))
+@using (Html.BeginForm("Worksheet", "Property", FormMethod.Post, htmlAttributes: new { ng_app = "ob", ng_controller = "WorksheetController as vm" }))
 {
     if (worksheetNames.Count() > 1)
     {
