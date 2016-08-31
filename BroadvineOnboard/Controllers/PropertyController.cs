@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using BroadvineOnboard.DAL;
 using BroadvineOnboard.Models;
 using System.IO;
+using BroadvineOnboard.AddOns;
 
 namespace BroadvineOnboard.Controllers
 {
@@ -29,6 +30,7 @@ namespace BroadvineOnboard.Controllers
         }                                                 
 
         [HttpPost]
+        [MultipleButton(Name = "action", Argument = "Upload")]
         public ActionResult Index(HttpPostedFileBase file)
         {
             string failedMessage = "";

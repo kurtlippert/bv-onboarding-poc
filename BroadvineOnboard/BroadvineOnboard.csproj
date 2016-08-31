@@ -234,6 +234,7 @@
     <Compile Include="Controllers\WagePTEBController.cs" />
     <Compile Include="DAL\BroadvineOnboardContext.cs" />
     <Compile Include="DAL\BroadvineOnboardInitializer.cs" />
+    <Compile Include="AddOns\MultipleButtonAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
