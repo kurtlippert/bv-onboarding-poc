@@ -399,6 +399,10 @@
     <Content Include="Views\Companies\Worksheet.cshtml" />
     <Content Include="Views\Areas\Import.cshtml" />
     <Content Include="Views\Areas\Worksheet.cshtml" />
+    <Content Include="Views\DepartmentGroups\Worksheet.cshtml" />
+    <Content Include="Views\DepartmentGroups\Import.cshtml" />
+    <Content Include="Views\COA\Import.cshtml" />
+    <Content Include="Views\COA\Worksheet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512022314083_db.resx">
