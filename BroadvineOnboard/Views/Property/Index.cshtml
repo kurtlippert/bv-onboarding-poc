@@ -6,20 +6,27 @@
 
 <h2>Property Listing</h2>
 
-@using (Html.BeginForm("Index", "Property", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Index", "Property", FormMethod.Post, new { ng_app = "ob", ng_controller = "WizardHostController as hostVm", enctype = "multipart/form-data" }))
 {
-    <p class="left">
+    <span class="left">
         @Html.ActionLink("Create New Property", "Create")
         &nbsp;or&nbsp;
         <label for="file" style="display:inline-block;">Upload spreadsheet:</label> &nbsp;
-        <input type="file" name="file" id="file" style="display:inline-block;" />
-    
-        <input type="submit" value="Upload" name="action:Upload" class="btn btn-default" />
-        <input type="submit" value="Wizard" name="action:Wizard" class="btn btn-default" />
-    </p>
-    <p class="right">
+        <input type="file" onchange="angular.element(this).scope().hostVm.fileChanged(this)" name="file" id="file" style="display:inline-block;" />
+
+        <span kendo-window="hostVm.popupWizard" k-options="hostVm.options"></span>
+    </span>
+
+    <input type="submit" value="Upload" class="k-button" />
+
+    <button type="button" kendo-button ng-click="hostVm.Show()">Wizard</button>
+
+    <p></p>
+
+    <span class="right">
         @ViewBag.Error
-    </p>
+    </span>
+
     <table class="table">
         <tr>
             <th>
@@ -87,3 +94,74 @@
 
     </table>
 }
+
+<script>
+    (function () {
+        angular.module("ob", ["kendo.directives", "ngRoute"]);
+
+        //angular
+        //    .module("ob")
+        //    .directive("fileInput", fileInput);
+
+        //fileInput.$inject = ['$parse'];
+
+        //function fileInput($parse) {
+        //    return {
+        //        restrict: 'A',
+        //        link: function (scope, elm, attr) {
+        //            elm.bind('change', function () {
+        //                $parse(scope, elm[0].file)
+        //                .assign()
+        //            })
+        //        }
+        //    }
+        //}
+
+        angular
+            .module("ob")
+            .controller("WizardHostController", WizardHostController);
+
+        function WizardHostController() {
+            var vm = this;
+            vm.file = {};
+
+            vm.fileChanged = function (element) {
+                vm.file = element.files[0];
+            }
+
+            vm.options = {
+                title: "title",
+                modal: true,
+                width: "300",
+                height: "200",
+                resizable: false,
+                visible: false
+            };
+
+            vm.Show = function () {
+                var data = new FormData();
+                data.append("file", vm.file);
+
+                var opts = {
+                    url: "@Url.Action("Wizard", "Property")",
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST'
+                };
+
+                if (data.fake) {
+                    // Make sure no text encoding stuff is done by xhr
+                    opts.xhr = function () { var xhr = $.ajaxSettings.xhr(); xhr.send = xhr.sendAsBinary; return xhr; }
+                    opts.contentType = "multipart/form-data; boundary=" + data.boundary;
+                    opts.data = data.toString();
+                }
+
+                vm.popupWizard.refresh(opts);
+                vm.popupWizard.center();
+                vm.popupWizard.open();
+            };
+        }
+    })();
+</script>

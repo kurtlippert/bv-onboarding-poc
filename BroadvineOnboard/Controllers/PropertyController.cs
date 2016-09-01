@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using BroadvineOnboard.DAL;
 using BroadvineOnboard.Models;
 using System.IO;
-using BroadvineOnboard.AddOns;
 
 namespace BroadvineOnboard.Controllers
 {
@@ -30,7 +29,6 @@ namespace BroadvineOnboard.Controllers
         }                                                 
 
         [HttpPost]
-        [MultipleButton(Name = "action", Argument = "Upload")]
         public ActionResult Index(HttpPostedFileBase file)
         {
             string failedMessage = "";
@@ -67,6 +65,41 @@ namespace BroadvineOnboard.Controllers
                 return RedirectToAction("Index", "Property", new { msg = failedMessage });
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Wizard(HttpPostedFileBase file)
+        {
+            string failedMessage = "";
+
+            if (file != null && file.ContentLength > 0)
+            {
+                string filename = file.FileName.ToLower();
+                if (filename.EndsWith("xls") || filename.EndsWith("xlsx"))
+                {
+                    try
+                    {
+                        var folderFilename = Path.Combine(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["UploadFolder"]), Path.GetFileName(file.FileName));
+                        file.SaveAs(folderFilename);
+
+                        ExcelSpreadSheet excel = new ExcelSpreadSheet(folderFilename, "Property");
+                        if (excel.WorkSheetNames.Count() == 1) excel.SelectedWorksheet = excel.WorkSheetNames.First().ToString();
+                        Helpers.CurrentClientUpload = excel;
+                    }
+                    catch (Exception ex)
+                    {
+                        failedMessage = ex.Message;
+                    }
+
+                }
+                else failedMessage = "Only valid excel spreadsheets are excepted";
+
+            }
+            else failedMessage = "The file contained no data.";
+
+            if (!string.IsNullOrEmpty(failedMessage))
+                return RedirectToAction("Index", "Property", new { msg = failedMessage });
+
+            return PartialView();
         }
 
         // GET: Property/Details/5
@@ -170,6 +203,7 @@ namespace BroadvineOnboard.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public ActionResult WorkSheet()
         {
             var result = (from w in Helpers.CurrentClientUpload.WorkSheetNames select new SelectListItem() { Text = w, Value = w }).ToList();
