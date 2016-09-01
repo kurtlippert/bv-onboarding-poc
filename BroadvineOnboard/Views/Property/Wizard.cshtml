@@ -1,11 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Wizard";
-    var result = (from w in BroadvineOnboard.Helpers.CurrentClientUpload.WorkSheetNames select new SelectListItem() { Text = w, Value = w }).ToList();
-    ViewBag.WorkSheetNames = result;
 }
 
 <h2>Wizard</h2>
 
 
-@Html.Partial("Worksheet", null, result)
+@Html.Action("WorkSheetPartial", "Property");

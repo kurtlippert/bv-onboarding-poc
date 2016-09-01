@@ -222,6 +222,13 @@ namespace BroadvineOnboard.Controllers
             return RedirectToAction("Import");
         }
 
+        public ActionResult WorkSheetPartial()
+        {
+            var result = (from w in Helpers.CurrentClientUpload.WorkSheetNames select new SelectListItem() { Text = w, Value = w }).ToList();
+            ViewBag.WorkSheetNames = result;
+            return PartialView("WorkSheet");
+        }
+
         //  Import 
         public ActionResult Import()
         {

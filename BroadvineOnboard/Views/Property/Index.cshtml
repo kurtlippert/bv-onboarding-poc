@@ -19,7 +19,7 @@
 
     <input type="submit" value="Upload" class="k-button" />
 
-    <button type="button" kendo-button ng-click="hostVm.Show()">Wizard</button>
+    <button type="button" kendo-button ng-click="hostVm.show()">Wizard</button>
 
     <p></p>
 
@@ -138,7 +138,7 @@
                 visible: false
             };
 
-            vm.Show = function () {
+            vm.show = function () {
                 var data = new FormData();
                 data.append("file", vm.file);
 
@@ -148,7 +148,18 @@
                     cache: false,
                     contentType: false,
                     processData: false,
-                    type: 'POST'
+                    type: 'POST',
+                    success: function (callback) {
+                        if (!callback.startsWith("<!DOCTYPE")) {
+                            vm.popupWizard.center();
+                            vm.popupWizard.open();
+                        }
+                        else {
+                            if (!window.location.href.endsWith("?msg=The%20file%20contained%20no%20data.")) {
+                                window.location.href = window.location.href + "?msg=The%20file%20contained%20no%20data.";
+                            }
+                        }
+                    }
                 };
 
                 if (data.fake) {
@@ -159,8 +170,6 @@
                 }
 
                 vm.popupWizard.refresh(opts);
-                vm.popupWizard.center();
-                vm.popupWizard.open();
             };
         }
     })();
