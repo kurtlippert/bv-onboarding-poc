@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Worksheet", "Property", FormMethod.Post, htmlAttributes: new { ng_app = "ob", ng_controller = "WorksheetController as vm" }))
+@using (Html.BeginForm("Worksheet", "Property", FormMethod.Post, htmlAttributes: new { ng_controller = "WorksheetController as worksheetVm" }))
 {
     if (worksheetNames.Count() > 1)
     {
@@ -22,33 +22,9 @@
     <div class="form-group">
         <label for="worksheet-row">Which row number in this worksheet is the header row?</label>
         <br />
-        <input kendo-numeric-text-box k-options="vm.options" k-ng-model="vm.value" ng-blur="vm.onBlur()" id="worksheet-row" name="rowNumber" />
+        <input kendo-numeric-text-box k-options="worksheetVm.options" k-ng-model="worksheetVm.value" ng-blur="worksheetVm.onBlur()" id="worksheet-row" name="rowNumber" />
     </div>
     <div>
-        <input type="submit" value="Next" class="btn btn-default" style="display: inline-block;" />
+        <input type="submit" value="Next" class="btn btn-default" style="display: inline-block" />
     </div>
 }
-
-<script>
-    (function () {
-        angular
-            .module("ob", ["kendo.directives"])
-            .controller("WorksheetController", function () {
-                var vm = this;
-                var defaultValue = 1;
-
-                vm.value = defaultValue;
-                vm.options = {
-                    min: "1",
-                    max: "100",
-                    format: "n0"
-                };
-
-                vm.onBlur = function() {
-                    if (vm.value === null) {
-                        vm.value = defaultValue;
-                    }
-                };
-            });
-    })();
-</script>

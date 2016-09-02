@@ -16,14 +16,8 @@
     @Styles.Render("~/Content/css")
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//kendo.cdn.telerik.com/2016.2.714/js/kendo.all.min.js"></script>
-    
 </head>
-<body>
+<body ng-app="ob">
     <nav class="navbar navbar-default transparent navbar-static-top" role="navigation" id="navbar-main">
         <div class="container">
             <div class="navbar-header">
@@ -92,6 +86,17 @@
 
     @*<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>*@
     @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>*@
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//kendo.cdn.telerik.com/2016.2.714/js/kendo.all.min.js"></script>
+
+    @Html.Partial("Settings")
+    <script src="~/Scripts/app/app.module.js"></script>
+    <script src="~/Scripts/app/popup.controller.js"></script>
+    <script src="~/Scripts/app/worksheet.controller.js"></script>
 </body>
 </html>
 
