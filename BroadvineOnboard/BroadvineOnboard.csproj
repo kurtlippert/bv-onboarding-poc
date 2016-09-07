@@ -276,6 +276,8 @@
     <Content Include="Content\images\jumbo-03.jpg" />
     <Content Include="Content\images\logo-broadvine.png" />
     <Content Include="Content\images\logo-broadvine-big.png" />
+    <Content Include="Content\styles\jquery.steps.css" />
+    <Content Include="Content\styles\main.css" />
     <Content Include="default.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

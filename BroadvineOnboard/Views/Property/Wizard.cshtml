@@ -1,9 +1,23 @@
 ﻿
-@{
-    ViewBag.Title = "Wizard";
-}
 
-<h2>Wizard</h2>
+<div id="wizard">    
+    <h3>Additional Information</h3>
+    <section>
+        @Html.Action("WorkSheetPartial", "Property")
+    </section>
 
+    <h3>Mappings</h3>
+    <section>
+    </section>
+</div>
 
-@Html.Action("WorkSheetPartial", "Property")
+<script>
+    $(document).ready(function () {
+        $("#wizard").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            autoFocus: true
+        });
+    });
+</script>

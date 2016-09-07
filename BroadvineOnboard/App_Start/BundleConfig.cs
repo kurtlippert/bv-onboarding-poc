@@ -33,6 +33,9 @@ namespace BroadvineOnboard
                       "~/Content/styles/content.css",
                       "~/Content/styles/Site.css",
                       "~/Content/styles/font-awesome.css"));
+
+            bundles.Add(new StyleBundle("~/Content/stepsCss").Include(
+                "~/Content/styles/jquery.steps.css"));
         }
     }
 }

@@ -1,11 +1,44 @@
 ﻿(function () {
     'use strict';
 
+    //angular
+    //    .module('ob')
+    //    .config(function ($stateProvider, $urlRouterProvider) {
+    //    // For any unmatched url, send to /route1
+    //    $urlRouterProvider.otherwise("/Wizard")
+
+    //    $stateProvider
+    //    .state('wizard', {
+    //        url: "/Wizard",
+    //        template: "Wizard.cshtml",
+    //        controller: function() {
+    //            console.log("Wizard controller");
+    //        }
+    //    })
+    //})
+
+    //angular
+    //    .module('ob')
+    //    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    //        var viewBase = '/Wizard';
+    //        $routeProvider
+    //            .when('/Wizard', {
+    //                templateUrl: "/Template/Test.html",
+    //                controller: 'TestController'
+    //            });
+    //        $locationProvider.html5Mode(true);
+    //    }])
+    //    .controller('TestController', function () {
+    //        console.log("Wizard Controller");
+    //        var vm = this;
+    //        vm.Message = "Test Controller Message";
+    //    });
+
     angular
         .module('ob')
         .controller('PopupController', PopupController)
 
-    //PopupController.$inject = ['']
+    //PopupController.$inject = ['$stateProvider']
 
     function PopupController() {
         var vm = this;
@@ -13,13 +46,14 @@
 
         vm.fileChanged = function (element) {
             vm.file = element.files[0];
+            console.log(vm.file);
         }
 
         vm.options = {
-            title: "title",
+            title: "Excel Mapping Wizard",
             modal: true,
-            width: "700",
-            height: "500",
+            width: "900",
+            height: "610",            
             resizable: false,
             visible: false
         };

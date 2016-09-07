@@ -141,3 +141,13 @@ textarea {
 .is-hidden {
     display: none;
 }
+
+
+/* jQuery Steps Overrides */
+.wizard > .content > .body input {
+    border: none;
+}
+
+.wizard > .content > .body .k-numeric-wrap input {
+    margin-top: -28px;
+}
