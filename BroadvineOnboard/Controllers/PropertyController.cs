@@ -281,14 +281,13 @@ namespace BroadvineOnboard.Controllers
                 Property property = new Property();
                 foreach (System.Reflection.PropertyInfo field in property.GetType().GetProperties())
                 {
-                    if (!values.AllKeys.Contains(field.Name) || string.IsNullOrEmpty(values[field.Name])) continue;
+                    if (!values.AllKeys.Contains(field.Name) || string.IsNullOrEmpty(values[field.Name]) || field.PropertyType.FullName == "System.Guid") continue;
                     try
                     {
                         int columnNumber = int.Parse(values[field.Name]);
-                        if (columnNumber < 1) continue;
+                        if (columnNumber < 0) continue; // unmapped columns are skipped for now
 
                         field.SetValue(property, row[columnNumber].Value.ToString());
-
                     }
                     catch (Exception e)
                     {
