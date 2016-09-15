@@ -32,7 +32,7 @@ namespace BroadvineOnboard.Models
         public string SmithTravelCode { get; set; }
         [Required]
         [DisplayName("Total Rooms")]
-        public int TotalRooms { get; set; }
+        public string TotalRooms { get; set; }
         [DisplayName("Website")]
         public string URL { get; set; }
         [DisplayName("Phone Number")]
