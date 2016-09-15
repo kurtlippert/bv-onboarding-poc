@@ -115,16 +115,16 @@ namespace BroadvineOnboard
                     {
                         string cellValue;
 
-                        if (cell.DataType != null && cell.DataType == CellValues.SharedString)
-                        {
+                        //if (cell.DataType != null && cell.DataType == CellValues.SharedString)
+                        //{
                             SharedStringItem ssi = workbookPart.SharedStringTablePart.SharedStringTable.Elements<SharedStringItem>().ElementAt(int.Parse(cell.CellValue.InnerText));
 
                             cellValue = ssi.Text.Text;
-                        }
-                        else
-                        {
-                            cellValue = cell.CellValue.InnerText;
-                        }
+                        //}
+                        //else
+                        //{
+                        //    cellValue = cell.CellValue.InnerText;
+                        //}
 
                         cells.Add(cellValue);
                     }
