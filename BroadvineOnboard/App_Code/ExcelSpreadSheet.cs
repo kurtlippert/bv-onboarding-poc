@@ -119,7 +119,7 @@ namespace BroadvineOnboard
                         //{
                             SharedStringItem ssi = workbookPart.SharedStringTablePart.SharedStringTable.Elements<SharedStringItem>().ElementAt(int.Parse(cell.CellValue.InnerText));
 
-                            cellValue = ssi.Text.Text;
+                            cellValue = ssi.InnerText;
                         //}
                         //else
                         //{
